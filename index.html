@@ -19,11 +19,8 @@
       --border: rgba(0,212,255,0.12);
       --glow: rgba(0,212,255,0.15);
     }
-
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -31,8 +28,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
-    /* ---- NOISE OVERLAY ---- */
     body::before {
       content: '';
       position: fixed;
@@ -42,8 +37,6 @@
       z-index: 0;
       opacity: 0.5;
     }
-
-    /* ---- NAV ---- */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -56,698 +49,106 @@
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
-
-    .nav-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.2rem;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
-    }
-
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; color: var(--accent); letter-spacing: 0.05em; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; font-weight: 500; letter-spacing: 0.03em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
-
-    /* ---- HERO ---- */
-    #home {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      padding: 7rem 2.5rem 4rem;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 70% 60% at 80% 50%, rgba(0,212,255,0.07) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 50% at 20% 80%, rgba(124,58,237,0.08) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 40% at 60% 10%, rgba(16,185,129,0.05) 0%, transparent 60%);
-    }
-
-    /* Floating grid lines */
-    .hero-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(0,212,255,0.08);
-      border: 1px solid rgba(0,212,255,0.2);
-      border-radius: 100px;
-      padding: 0.35rem 1rem;
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--accent);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease both;
-    }
-
-    .hero-badge::before {
-      content: '';
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.4); }
-    }
-
-    .hero-greeting {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1.1rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-      animation: fadeUp 0.6s 0.1s ease both;
-    }
-
-    .hero-name {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.8rem, 7vw, 5rem);
-      font-weight: 800;
-      line-height: 1.05;
-      margin-bottom: 1rem;
-      animation: fadeUp 0.6s 0.2s ease both;
-      background: linear-gradient(135deg, #e8edf5 30%, var(--accent) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-sub {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin-bottom: 0.5rem;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-
-    .hero-sub span {
-      color: var(--accent2);
-      font-weight: 500;
-    }
-
-    .hero-desc {
-      font-size: 1rem;
-      color: #8a97b0;
-      max-width: 520px;
-      margin: 1.2rem 0 2rem;
-      animation: fadeUp 0.6s 0.4s ease both;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      animation: fadeUp 0.6s 0.5s ease both;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.6rem;
-      border-radius: 8px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 0.92rem;
-      text-decoration: none;
-      transition: all 0.2s;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #080c14;
-    }
-    .btn-primary:hover {
-      background: #33dcff;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(0,212,255,0.3);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    .btn-outline:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .hero-stats {
-      display: flex;
-      gap: 2.5rem;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border);
-      animation: fadeUp 0.6s 0.6s ease both;
-    }
-
-    .stat-value {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--accent);
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-    }
-
-    /* ---- SECTIONS ---- */
+    #home { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; padding: 7rem 2.5rem 4rem; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(0,212,255,0.07) 0%, transparent 70%), radial-gradient(ellipse 50% 50% at 20% 80%, rgba(124,58,237,0.08) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 60% 10%, rgba(16,185,129,0.05) 0%, transparent 60%); }
+    .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px); background-size: 60px 60px; }
+    .hero-content { position: relative; z-index: 1; max-width: 700px; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(0,212,255,0.08); border: 1px solid rgba(0,212,255,0.2); border-radius: 100px; padding: 0.35rem 1rem; font-size: 0.78rem; font-weight: 500; color: var(--accent); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.5rem; animation: fadeUp 0.6s ease both; }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
+    .hero-greeting { font-family: 'DM Sans', sans-serif; font-size: 1.1rem; color: var(--muted); margin-bottom: 0.5rem; animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-name { font-family: 'Syne', sans-serif; font-size: clamp(2.8rem, 7vw, 5rem); font-weight: 800; line-height: 1.05; margin-bottom: 1rem; animation: fadeUp 0.6s 0.2s ease both; background: linear-gradient(135deg, #e8edf5 30%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { font-size: 1.05rem; color: var(--muted); margin-bottom: 0.5rem; animation: fadeUp 0.6s 0.3s ease both; }
+    .hero-sub span { color: var(--accent2); font-weight: 500; }
+    .hero-desc { font-size: 1rem; color: #8a97b0; max-width: 520px; margin: 1.2rem 0 2rem; animation: fadeUp 0.6s 0.4s ease both; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.5s ease both; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.6rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.92rem; text-decoration: none; transition: all 0.2s; cursor: pointer; border: none; }
+    .btn-primary { background: var(--accent); color: #080c14; }
+    .btn-primary:hover { background: #33dcff; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,212,255,0.3); }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .hero-stats { display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border); animation: fadeUp 0.6s 0.6s ease both; }
+    .stat-value { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.04em; }
     section { padding: 5rem 2.5rem; position: relative; }
     .section-inner { max-width: 900px; margin: 0 auto; }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.6rem;
-    }
-
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .section-desc {
-      color: var(--muted);
-      max-width: 560px;
-      margin-bottom: 3rem;
-      font-size: 0.98rem;
-    }
-
-    /* ---- ABOUT ---- */
+    .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .section-title { font-family: 'Syne', sans-serif; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; line-height: 1.2; }
+    .section-desc { color: var(--muted); max-width: 560px; margin-bottom: 3rem; font-size: 0.98rem; }
     #about { background: var(--surface); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .about-text p {
-      color: #8a97b0;
-      margin-bottom: 1rem;
-      font-size: 0.97rem;
-    }
-
-    .about-details {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .detail-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1rem 1.2rem;
-      background: var(--surface2);
-      border-radius: 10px;
-      border: 1px solid var(--border);
-    }
-
-    .detail-icon {
-      font-size: 1.3rem;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .detail-key {
-      font-size: 0.75rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    .detail-val {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text);
-      margin-top: 2px;
-    }
-
-    /* ---- CERTIFICATES ---- */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .about-text p { color: #8a97b0; margin-bottom: 1rem; font-size: 0.97rem; }
+    .about-details { display: flex; flex-direction: column; gap: 1rem; }
+    .detail-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1rem 1.2rem; background: var(--surface2); border-radius: 10px; border: 1px solid var(--border); }
+    .detail-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .detail-key { font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; font-weight: 600; }
+    .detail-val { font-size: 0.95rem; font-weight: 500; color: var(--text); margin-top: 2px; }
     #certificates { background: var(--bg); }
-
-    .cert-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-
-    .cert-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.6rem;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-
-    .cert-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .cert-card:hover {
-      border-color: rgba(0,212,255,0.3);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,212,255,0.1);
-    }
-
+    .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .cert-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.6rem; position: relative; overflow: hidden; transition: all 0.3s; cursor: pointer; }
+    .cert-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); opacity: 0; transition: opacity 0.3s; }
+    .cert-card:hover { border-color: rgba(0,212,255,0.3); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,212,255,0.1); }
     .cert-card:hover::before { opacity: 1; }
-
-    .cert-issuer-row {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin-bottom: 1rem;
-    }
-
-    .cert-issuer-icon {
-      width: 40px; height: 40px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-
+    .cert-issuer-row { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+    .cert-issuer-icon { width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
     .icon-cisco { background: rgba(0,212,255,0.1); border: 1px solid rgba(0,212,255,0.2); }
     .icon-india { background: rgba(255,153,0,0.1); border: 1px solid rgba(255,153,0,0.2); }
-
-    .cert-issuer-name {
-      font-size: 0.8rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .cert-type-badge {
-      margin-left: auto;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 0.2rem 0.7rem;
-      border-radius: 100px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .badge-course {
-      background: rgba(16,185,129,0.1);
-      color: var(--accent3);
-      border: 1px solid rgba(16,185,129,0.2);
-    }
-
-    .badge-participation {
-      background: rgba(124,58,237,0.1);
-      color: #a78bfa;
-      border: 1px solid rgba(124,58,237,0.2);
-    }
-
-    .cert-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-      color: var(--text);
-    }
-
-    .cert-meta {
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin-bottom: 1.2rem;
-    }
-
-    .cert-skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .skill-tag {
-      font-size: 0.72rem;
-      padding: 0.2rem 0.7rem;
-      border-radius: 100px;
-      background: rgba(0,212,255,0.06);
-      border: 1px solid rgba(0,212,255,0.12);
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .cert-date {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .cert-view-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.8rem;
-      color: var(--accent);
-      font-weight: 500;
-      cursor: pointer;
-      margin-top: 0.8rem;
-      transition: gap 0.2s;
-    }
-
+    .cert-issuer-name { font-size: 0.8rem; color: var(--muted); font-weight: 500; }
+    .cert-type-badge { margin-left: auto; font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.7rem; border-radius: 100px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .badge-course { background: rgba(16,185,129,0.1); color: var(--accent3); border: 1px solid rgba(16,185,129,0.2); }
+    .badge-participation { background: rgba(124,58,237,0.1); color: #a78bfa; border: 1px solid rgba(124,58,237,0.2); }
+    .cert-title { font-family: 'Syne', sans-serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--text); }
+    .cert-meta { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.2rem; }
+    .cert-skills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+    .skill-tag { font-size: 0.72rem; padding: 0.2rem 0.7rem; border-radius: 100px; background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.12); color: var(--accent); font-weight: 500; }
+    .cert-date { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--muted); }
+    .cert-view-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--accent); font-weight: 500; cursor: pointer; margin-top: 0.8rem; transition: gap 0.2s; }
     .cert-view-btn:hover { gap: 0.7rem; }
-
-    /* ---- SKILLS ---- */
     #skills { background: var(--surface); }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-    }
-
-    .skill-card {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.3rem;
-      transition: all 0.2s;
-    }
-
-    .skill-card:hover {
-      border-color: rgba(0,212,255,0.25);
-      transform: translateY(-2px);
-    }
-
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .skill-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 12px; padding: 1.3rem; transition: all 0.2s; }
+    .skill-card:hover { border-color: rgba(0,212,255,0.25); transform: translateY(-2px); }
     .skill-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
-
-    .skill-name {
-      font-family: 'Syne', sans-serif;
-      font-weight: 600;
-      font-size: 0.92rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .skill-level-text {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-bottom: 0.8rem;
-    }
-
-    .skill-bar {
-      height: 3px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 100px;
-      overflow: hidden;
-    }
-
-    .skill-bar-fill {
-      height: 100%;
-      border-radius: 100px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-    }
-
-    /* ---- CONTACT ---- */
+    .skill-name { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.92rem; margin-bottom: 0.3rem; }
+    .skill-level-text { font-size: 0.75rem; color: var(--muted); margin-bottom: 0.8rem; }
+    .skill-bar { height: 3px; background: rgba(255,255,255,0.06); border-radius: 100px; overflow: hidden; }
+    .skill-bar-fill { height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
     #contact { background: var(--bg); }
-
-    .contact-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2.5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: start;
-    }
-
-    .contact-info h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 0.7rem;
-    }
-
-    .contact-info p {
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .contact-item-icon {
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      background: rgba(0,212,255,0.08);
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .contact-item-text {
-      font-size: 0.88rem;
-      color: var(--text);
-    }
-
-    .contact-item-label {
-      font-size: 0.72rem;
-      color: var(--muted);
-      margin-bottom: 1px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .contact-link-btn {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      padding: 1rem 1.2rem;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-
-    .contact-link-btn:hover {
-      border-color: rgba(0,212,255,0.3);
-      color: var(--accent);
-      transform: translateX(4px);
-    }
-
-    /* ---- MODAL ---- */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.85);
-      backdrop-filter: blur(10px);
-      z-index: 200;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-
+    .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start; }
+    .contact-info h3 { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 0.7rem; }
+    .contact-info p { color: var(--muted); font-size: 0.92rem; margin-bottom: 1.5rem; }
+    .contact-item { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.8rem; }
+    .contact-item-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(0,212,255,0.08); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .contact-item-text { font-size: 0.88rem; color: var(--text); }
+    .contact-item-label { font-size: 0.72rem; color: var(--muted); margin-bottom: 1px; letter-spacing: 0.04em; text-transform: uppercase; }
+    .contact-links { display: flex; flex-direction: column; gap: 0.8rem; }
+    .contact-link-btn { display: flex; align-items: center; gap: 0.8rem; padding: 1rem 1.2rem; background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; color: var(--text); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: all 0.2s; }
+    .contact-link-btn:hover { border-color: rgba(0,212,255,0.3); color: var(--accent); transform: translateX(4px); }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); z-index: 200; align-items: center; justify-content: center; padding: 2rem; }
     .modal-overlay.open { display: flex; }
-
-    .modal-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      max-width: 640px;
-      width: 100%;
-      padding: 2rem;
-      position: relative;
-      animation: modalIn 0.25s ease;
-    }
-
-    @keyframes modalIn {
-      from { opacity: 0; transform: scale(0.95) translateY(10px); }
-      to { opacity: 1; transform: scale(1) translateY(0); }
-    }
-
-    .modal-close {
-      position: absolute;
-      top: 1rem; right: 1rem;
-      width: 32px; height: 32px;
-      border-radius: 50%;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      cursor: pointer;
-      color: var(--muted);
-      transition: all 0.2s;
-    }
-
+    .modal-box { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; max-width: 640px; width: 100%; padding: 2rem; position: relative; animation: modalIn 0.25s ease; }
+    @keyframes modalIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+    .modal-close { position: absolute; top: 1rem; right: 1rem; width: 32px; height: 32px; border-radius: 50%; background: var(--surface2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; color: var(--muted); transition: all 0.2s; }
     .modal-close:hover { color: var(--text); border-color: var(--accent); }
-
-    .modal-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-
-    .modal-subtitle {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-content {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .modal-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 0.6rem;
-      font-size: 0.88rem;
-    }
-
+    .modal-title { font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .modal-subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
+    .modal-content { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem; margin-bottom: 1rem; }
+    .modal-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.6rem; font-size: 0.88rem; }
     .modal-row-key { color: var(--muted); }
     .modal-row-val { color: var(--text); font-weight: 500; text-align: right; max-width: 60%; }
-
-    .modal-skills-list {
-      margin-top: 1rem;
-    }
-
-    .modal-skills-list h4 {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      font-weight: 600;
-      margin-bottom: 0.7rem;
-    }
-
-    .modal-skills-list ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
-    }
-
-    .modal-skills-list li {
-      font-size: 0.85rem;
-      color: #8a97b0;
-      padding-left: 1rem;
-      position: relative;
-    }
-
-    .modal-skills-list li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 0.7rem;
-    }
-
-    /* ---- FOOTER ---- */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-
-    /* ---- ANIMATIONS ---- */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ---- RESPONSIVE ---- */
+    .modal-skills-list { margin-top: 1rem; }
+    .modal-skills-list h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; margin-bottom: 0.7rem; }
+    .modal-skills-list ul { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+    .modal-skills-list li { font-size: 0.85rem; color: #8a97b0; padding-left: 1rem; position: relative; }
+    .modal-skills-list li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.7rem; }
+    footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.82rem; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
     @media (max-width: 700px) {
       nav { padding: 0.8rem 1.2rem; }
       .nav-links { gap: 1rem; }
@@ -760,8 +161,6 @@
   </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
   <div class="nav-logo">SK.</div>
   <ul class="nav-links">
@@ -773,7 +172,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="home">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
@@ -782,98 +180,46 @@
     <p class="hero-greeting">👋 Hello, I'm</p>
     <h1 class="hero-name">Sarang Khandekar</h1>
     <p class="hero-sub">B.Tech AIML &nbsp;·&nbsp; <span>MIT Vishwaprayag University</span> &nbsp;·&nbsp; School of Computing</p>
-    <p class="hero-desc">
-      An aspiring AI engineer passionate about building intelligent systems and exploring the frontier of machine learning, language models, and real-world AI applications.
-    </p>
+    <p class="hero-desc">An aspiring AI engineer passionate about building intelligent systems and exploring the frontier of machine learning, language models, and real-world AI applications.</p>
     <div class="hero-actions">
       <a href="#certificates" class="btn btn-primary">View Certificates →</a>
       <a href="#contact" class="btn btn-outline">Get In Touch</a>
     </div>
     <div class="hero-stats">
-      <div>
-        <div class="stat-value">2+</div>
-        <div class="stat-label">Certificates</div>
-      </div>
-      <div>
-        <div class="stat-value">AIML</div>
-        <div class="stat-label">Specialisation</div>
-      </div>
-      <div>
-        <div class="stat-value">∞</div>
-        <div class="stat-label">Curiosity</div>
-      </div>
+      <div><div class="stat-value">2+</div><div class="stat-label">Certificates</div></div>
+      <div><div class="stat-value">AIML</div><div class="stat-label">Specialisation</div></div>
+      <div><div class="stat-value">∞</div><div class="stat-label">Curiosity</div></div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-inner">
     <p class="section-label fade-in">Who I am</p>
     <h2 class="section-title fade-in">Passionate About Artificial Intelligence</h2>
     <div class="about-grid">
       <div class="about-text fade-in">
-        <p>
-          I am Sarang Bharat Khandekar, a B.Tech student specialising in Artificial Intelligence and Machine Learning at the School of Computing, MIT Vishwaprayag University.
-        </p>
-        <p>
-          My journey in AI is fuelled by curiosity — from understanding how large language models reason, to exploring computer vision and building practical AI-powered applications. I believe the future belongs to those who can bridge theoretical AI concepts with real-world solutions.
-        </p>
-        <p>
-          Beyond academics, I actively pursue certifications in modern AI, participate in programs like Yuva AI for All, and stay on the cutting edge of emerging technologies in machine learning and data science.
-        </p>
+        <p>I am Sarang Bharat Khandekar, a B.Tech student specialising in Artificial Intelligence and Machine Learning at the School of Computing, MIT Vishwaprayag University.</p>
+        <p>My journey in AI is fuelled by curiosity — from understanding how large language models reason, to exploring computer vision and building practical AI-powered applications.</p>
+        <p>Beyond academics, I actively pursue certifications in modern AI, participate in programs like Yuva AI for All, and stay on the cutting edge of emerging technologies.</p>
       </div>
       <div class="about-details fade-in">
-        <div class="detail-item">
-          <div class="detail-icon">🎓</div>
-          <div>
-            <div class="detail-key">Degree</div>
-            <div class="detail-val">B.Tech — Artificial Intelligence &amp; Machine Learning</div>
-          </div>
-        </div>
-        <div class="detail-item">
-          <div class="detail-icon">🏛️</div>
-          <div>
-            <div class="detail-key">University</div>
-            <div class="detail-val">MIT Vishwaprayag University</div>
-          </div>
-        </div>
-        <div class="detail-item">
-          <div class="detail-icon">💻</div>
-          <div>
-            <div class="detail-key">School</div>
-            <div class="detail-val">School of Computing</div>
-          </div>
-        </div>
-        <div class="detail-item">
-          <div class="detail-icon">📅</div>
-          <div>
-            <div class="detail-key">Year</div>
-            <div class="detail-val">2025–2026</div>
-          </div>
-        </div>
-        <div class="detail-item">
-          <div class="detail-icon">🤖</div>
-          <div>
-            <div class="detail-key">Focus Area</div>
-            <div class="detail-val">LLMs · Computer Vision · ML Engineering</div>
-          </div>
-        </div>
+        <div class="detail-item"><div class="detail-icon">🎓</div><div><div class="detail-key">Degree</div><div class="detail-val">B.Tech — Artificial Intelligence &amp; Machine Learning</div></div></div>
+        <div class="detail-item"><div class="detail-icon">🏛️</div><div><div class="detail-key">University</div><div class="detail-val">MIT Vishwaprayag University</div></div></div>
+        <div class="detail-item"><div class="detail-icon">💻</div><div><div class="detail-key">School</div><div class="detail-val">School of Computing</div></div></div>
+        <div class="detail-item"><div class="detail-icon">📅</div><div><div class="detail-key">Year</div><div class="detail-val">2025–2026</div></div></div>
+        <div class="detail-item"><div class="detail-icon">🤖</div><div><div class="detail-key">Focus Area</div><div class="detail-val">LLMs · Computer Vision · ML Engineering</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CERTIFICATES -->
 <section id="certificates">
   <div class="section-inner">
     <p class="section-label fade-in">Credentials</p>
     <h2 class="section-title fade-in">Academic Achievements &amp; Certifications</h2>
     <p class="section-desc fade-in">Verified credentials earned through recognised platforms in AI and emerging technologies.</p>
-
     <div class="cert-grid">
-
-      <!-- Cisco Certificate -->
       <div class="cert-card fade-in" onclick="openModal('cisco')">
         <div class="cert-issuer-row">
           <div class="cert-issuer-icon icon-cisco">🌐</div>
@@ -892,8 +238,6 @@
         <div class="cert-date">📅 Feb 09, 2026</div>
         <div class="cert-view-btn">View Details →</div>
       </div>
-
-      <!-- IndiaAI / Nasscom Certificate -->
       <div class="cert-card fade-in" onclick="openModal('indiaai')">
         <div class="cert-issuer-row">
           <div class="cert-issuer-icon icon-india">🇮🇳</div>
@@ -910,163 +254,71 @@
         <div class="cert-date">📅 Feb 08, 2026</div>
         <div class="cert-view-btn">View Details →</div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-inner">
     <p class="section-label fade-in">Expertise</p>
     <h2 class="section-title fade-in">Areas of Knowledge &amp; Expertise</h2>
     <p class="section-desc fade-in">Building a strong foundation across AI, ML, and software engineering.</p>
     <div class="skills-grid">
-      <div class="skill-card fade-in">
-        <div class="skill-icon">🧠</div>
-        <div class="skill-name">Machine Learning</div>
-        <div class="skill-level-text">Intermediate</div>
-        <div class="skill-bar"><div class="skill-bar-fill" style="width:65%"></div></div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-icon">🤖</div>
-        <div class="skill-name">Modern AI Concepts</div>
-        <div class="skill-level-text">Certified</div>
-        <div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-icon">💬</div>
-        <div class="skill-name">LLMs &amp; Chatbots</div>
-        <div class="skill-level-text">Intermediate</div>
-        <div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-icon">👁️</div>
-        <div class="skill-name">Computer Vision</div>
-        <div class="skill-level-text">Foundation</div>
-        <div class="skill-bar"><div class="skill-bar-fill" style="width:45%"></div></div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-icon">🐍</div>
-        <div class="skill-name">Python Programming</div>
-        <div class="skill-level-text">Intermediate</div>
-        <div class="skill-bar"><div class="skill-bar-fill" style="width:60%"></div></div>
-      </div>
-      <div class="skill-card fade-in">
-        <div class="skill-icon">📊</div>
-        <div class="skill-name">Data Analysis</div>
-        <div class="skill-level-text">Developing</div>
-        <div class="skill-bar"><div class="skill-bar-fill" style="width:40%"></div></div>
-      </div>
+      <div class="skill-card fade-in"><div class="skill-icon">🧠</div><div class="skill-name">Machine Learning</div><div class="skill-level-text">Intermediate</div><div class="skill-bar"><div class="skill-bar-fill" style="width:65%"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-icon">🤖</div><div class="skill-name">Modern AI Concepts</div><div class="skill-level-text">Certified</div><div class="skill-bar"><div class="skill-bar-fill" style="width:80%"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-icon">💬</div><div class="skill-name">LLMs &amp; Chatbots</div><div class="skill-level-text">Intermediate</div><div class="skill-bar"><div class="skill-bar-fill" style="width:70%"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-icon">👁️</div><div class="skill-name">Computer Vision</div><div class="skill-level-text">Foundation</div><div class="skill-bar"><div class="skill-bar-fill" style="width:45%"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-icon">🐍</div><div class="skill-name">Python Programming</div><div class="skill-level-text">Intermediate</div><div class="skill-bar"><div class="skill-bar-fill" style="width:60%"></div></div></div>
+      <div class="skill-card fade-in"><div class="skill-icon">📊</div><div class="skill-name">Data Analysis</div><div class="skill-level-text">Developing</div><div class="skill-bar"><div class="skill-bar-fill" style="width:40%"></div></div></div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
     <p class="section-label fade-in">Say Hello</p>
     <h2 class="section-title fade-in">Let's Connect</h2>
     <p class="section-desc fade-in">Open to connecting with fellow AI enthusiasts, professors, and tech professionals.</p>
-
     <div class="contact-box fade-in">
       <div class="contact-info">
         <h3>Sarang Khandekar</h3>
         <p>B.Tech AIML student passionate about AI research, ML engineering, and building the next generation of intelligent applications.</p>
-        <div class="contact-item">
-          <div class="contact-item-icon">🏛️</div>
-          <div>
-            <div class="contact-item-label">University</div>
-            <div class="contact-item-text">MIT Vishwaprayag University</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">💻</div>
-          <div>
-            <div class="contact-item-label">Department</div>
-            <div class="contact-item-text">School of Computing — AIML</div>
-          </div>
-        </div>
-        <div class="contact-item">
-          <div class="contact-item-icon">📍</div>
-          <div>
-            <div class="contact-item-label">Location</div>
-            <div class="contact-item-text">India</div>
-          </div>
-        </div>
+        <div class="contact-item"><div class="contact-item-icon">🏛️</div><div><div class="contact-item-label">University</div><div class="contact-item-text">MIT Vishwaprayag University</div></div></div>
+        <div class="contact-item"><div class="contact-item-icon">💻</div><div><div class="contact-item-label">Department</div><div class="contact-item-text">School of Computing — AIML</div></div></div>
+        <div class="contact-item"><div class="contact-item-icon">📍</div><div><div class="contact-item-label">Location</div><div class="contact-item-text">India</div></div></div>
       </div>
       <div class="contact-links">
-        <a href="mailto:sarang@example.com" class="contact-link-btn">
-          <span>📧</span>
-          <div>
-            <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;">Email</div>
-            <div>Send a Message</div>
-          </div>
-          <span style="margin-left:auto;color:var(--muted);">→</span>
-        </a>
-        <a href="https://linkedin.com" target="_blank" class="contact-link-btn">
-          <span>💼</span>
-          <div>
-            <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;">LinkedIn</div>
-            <div>Connect with me</div>
-          </div>
-          <span style="margin-left:auto;color:var(--muted);">→</span>
-        </a>
-        <a href="https://github.com" target="_blank" class="contact-link-btn">
-          <span>🐙</span>
-          <div>
-            <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;">GitHub</div>
-            <div>View my Projects</div>
-          </div>
-          <span style="margin-left:auto;color:var(--muted);">→</span>
-        </a>
+        <a href="mailto:sarang@example.com" class="contact-link-btn"><span>📧</span><div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;">Email</div><div>Send a Message</div></div><span style="margin-left:auto;color:var(--muted);">→</span></a>
+        <a href="https://linkedin.com" target="_blank" class="contact-link-btn"><span>💼</span><div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;">LinkedIn</div><div>Connect with me</div></div><span style="margin-left:auto;color:var(--muted);">→</span></a>
+        <a href="https://github.com" target="_blank" class="contact-link-btn"><span>🐙</span><div><div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.04em;">GitHub</div><div>View my Projects</div></div><span style="margin-left:auto;color:var(--muted);">→</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  © 2026 Sarang Khandekar · B.Tech AIML · School of Computing, MIT Vishwaprayag University
-</footer>
+<footer>© 2026 Sarang Khandekar · B.Tech AIML · School of Computing, MIT Vishwaprayag University</footer>
 
-<!-- MODALS -->
 <div class="modal-overlay" id="modal-cisco" onclick="closeModal(event)">
   <div class="modal-box">
     <div class="modal-close" onclick="closeModalById('modal-cisco')">✕</div>
     <div class="modal-title">Introduction to Modern AI</div>
     <div class="modal-subtitle">Cisco Networking Academy · Certificate of Course Completion</div>
     <div class="modal-content">
-      <div class="modal-row">
-        <span class="modal-row-key">Awarded to</span>
-        <span class="modal-row-val">sarang khandekar</span>
-      </div>
-      <div class="modal-row">
-        <span class="modal-row-key">Issued by</span>
-        <span class="modal-row-val">Lynn Bloomer, Director, Cisco Networking Academy</span>
-      </div>
-      <div class="modal-row">
-        <span class="modal-row-key">Date</span>
-        <span class="modal-row-val">February 09, 2026</span>
-      </div>
-      <div class="modal-row">
-        <span class="modal-row-key">Status</span>
-        <span class="modal-row-val" style="color:var(--accent3)">✓ Verified</span>
-      </div>
+      <div class="modal-row"><span class="modal-row-key">Awarded to</span><span class="modal-row-val">sarang khandekar</span></div>
+      <div class="modal-row"><span class="modal-row-key">Issued by</span><span class="modal-row-val">Lynn Bloomer, Director, Cisco Networking Academy</span></div>
+      <div class="modal-row"><span class="modal-row-key">Date</span><span class="modal-row-val">February 09, 2026</span></div>
+      <div class="modal-row"><span class="modal-row-key">Status</span><span class="modal-row-val" style="color:var(--accent3)">✓ Verified</span></div>
     </div>
-    <div class="modal-skills-list">
-      <h4>Skills Demonstrated</h4>
-      <ul>
-        <li>Explain basic concepts in AI and Machine Learning</li>
-        <li>Use photo apps to classify objects, blur backgrounds using object detection and image segmentation</li>
-        <li>Use machine translation and understand AI language translation nuances</li>
-        <li>Explain fundamentals of how large language models work and prompt them effectively</li>
-        <li>Demonstrate use cases of LLM-enabled chatbots: idea generation, summarization, rewording, grading</li>
-        <li>Utilize two-way dialogue with chatbots (e.g. mock interviews)</li>
-        <li>Facilitate collaboration between two chatbots to achieve a goal</li>
-        <li>Use LLMs with tools (web search, web scraping) and multimodal prompting</li>
-      </ul>
-    </div>
+    <div class="modal-skills-list"><h4>Skills Demonstrated</h4><ul>
+      <li>Explain basic concepts in AI and Machine Learning</li>
+      <li>Use photo apps to classify objects, blur backgrounds using object detection and image segmentation</li>
+      <li>Use machine translation and understand AI language translation nuances</li>
+      <li>Explain fundamentals of how large language models work and prompt them effectively</li>
+      <li>Demonstrate use cases of LLM-enabled chatbots: idea generation, summarization, rewording, grading</li>
+      <li>Utilize two-way dialogue with chatbots (e.g. mock interviews)</li>
+      <li>Facilitate collaboration between two chatbots to achieve a goal</li>
+      <li>Use LLMs with tools (web search, web scraping) and multimodal prompting</li>
+    </ul></div>
   </div>
 </div>
 
@@ -1076,40 +328,21 @@
     <div class="modal-title">Yuva AI for All</div>
     <div class="modal-subtitle">IndiaAI · Nasscom FutureSkills Prime · Certificate of Participation</div>
     <div class="modal-content">
-      <div class="modal-row">
-        <span class="modal-row-key">Awarded to</span>
-        <span class="modal-row-val">SARANG BHARAT KHANDEKAR</span>
-      </div>
-      <div class="modal-row">
-        <span class="modal-row-key">Programme</span>
-        <span class="modal-row-val">Yuva AI for All</span>
-      </div>
-      <div class="modal-row">
-        <span class="modal-row-key">Issued by</span>
-        <span class="modal-row-val">Dr. Abhilasha Gaur, CEO, IT-ITeS SSC Nasscom</span>
-      </div>
-      <div class="modal-row">
-        <span class="modal-row-key">Partners</span>
-        <span class="modal-row-val">IndiaAI · Nasscom IT-ITeS SSC · FutureSkills Prime</span>
-      </div>
-      <div class="modal-row">
-        <span class="modal-row-key">Date of Issue</span>
-        <span class="modal-row-val">February 08, 2026</span>
-      </div>
+      <div class="modal-row"><span class="modal-row-key">Awarded to</span><span class="modal-row-val">SARANG BHARAT KHANDEKAR</span></div>
+      <div class="modal-row"><span class="modal-row-key">Programme</span><span class="modal-row-val">Yuva AI for All</span></div>
+      <div class="modal-row"><span class="modal-row-key">Issued by</span><span class="modal-row-val">Dr. Abhilasha Gaur, CEO, IT-ITeS SSC Nasscom</span></div>
+      <div class="modal-row"><span class="modal-row-key">Partners</span><span class="modal-row-val">IndiaAI · Nasscom IT-ITeS SSC · FutureSkills Prime</span></div>
+      <div class="modal-row"><span class="modal-row-key">Date of Issue</span><span class="modal-row-val">February 08, 2026</span></div>
     </div>
-    <div class="modal-skills-list">
-      <h4>Focus Areas</h4>
-      <ul>
-        <li>Applied AI concepts and emerging technologies</li>
-        <li>Digital skills for an AI-first economy</li>
-        <li>National AI initiative participation — Yuva AI for All</li>
-      </ul>
-    </div>
+    <div class="modal-skills-list"><h4>Focus Areas</h4><ul>
+      <li>Applied AI concepts and emerging technologies</li>
+      <li>Digital skills for an AI-first economy</li>
+      <li>National AI initiative participation — Yuva AI for All</li>
+    </ul></div>
   </div>
 </div>
 
 <script>
-  // Scroll animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
       if (e.isIntersecting) {
@@ -1118,36 +351,12 @@
       }
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-  // Modals
-  function openModal(id) {
-    document.getElementById('modal-' + id).classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModalById(id) {
-    document.getElementById(id).classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  function closeModal(e) {
-    if (e.target.classList.contains('modal-overlay')) {
-      e.target.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  }
-
-  // Escape key
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.modal-overlay.open').forEach(m => {
-        m.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    }
-  });
+  function openModal(id) { document.getElementById('modal-' + id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeModalById(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
+  function closeModal(e) { if (e.target.classList.contains('modal-overlay')) { e.target.classList.remove('open'); document.body.style.overflow = ''; } }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.querySelectorAll('.modal-overlay.open').forEach(m => { m.classList.remove('open'); document.body.style.overflow = ''; }); } });
 </script>
 </body>
 </html>
